@@ -1,0 +1,70 @@
+git Bash中的复制与粘贴
+Ctrl+insert 复制
+Shift+insert 粘贴
+
+//////////官方例子//////
+create a new repository on the command line
+echo "# Dorisyfc-Web-Design" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git checkout -b main
+git remote add origin https://github.com/Ireneyfc/Dorisyfc-Web-Design.git
+git push -u origin main
+
+
+
+
+
+
+
+
+
+
+
+
+
+git config --global user.name "Ireneyfc"
+git config --global user.email "irene6yfc@gmail.com"
+
+cd ~/.ssh                             //转到C：\用户\你的用户名\.ssh文件夹
+ssh-keygen -C "irene6yfc@gmail.com" -t rsa   //生成ssh密钥，这条语句会在.ssh文件夹中生成两个必要的文件：id_rsa和id_rsa.pub，
+                                     //这是用rsa算法生成的公钥和私钥
+
+执行完上面两条语句后一路按ENTER键即可，然后Ctrl+insert复制生成的密钥：
+
+然后在浏览器上登陆你的github账户，然后点击右上角的头像，选择Your profile
+
+然后点击右上角的Edit profile
+
+然后再左边菜单栏选择SSH and GPG keys
+进去之后在SSH keys那里点击右上角的new SSH keys
+然后按ctrl+v把你的密钥复制进去，title可以随便命名，然后点击add，这时候github会验证你是不是本人让你重新输入登录密码，输完就可以了。
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDkx7zPt/ULc5ZMZ2nwtKFxmLoN3luI8pciC76ntRx/881i6sa1WMg9v4xgnShTpdiSyUSJV2BxBjEAsb0MOMwBW2QbyZABjF7tDLomwbGpOJ01uSw0PqqT8T5c7A+nxvHTKp7QBqGDOBeaNW2koQo1j/VJ4aDhE5w2DUHC+Pw5YNcY6M3x9kzeH19lBoUlnL1Gf6EwHj08LTLTWUUZEg+sbpHtoGYUzoPT6UaA1gn8aVGML3lUo209bz0mzXWjrTb17tR5netsvHycls8cXV28bp1hSumEMq2Hmz0Azv793obNPCinq4UIfhl9srDjr1CjNLCHEtgm2QurnioVqbH2GIkOxCbP6ng6WT2wod9mn3i+x/oI+aI/uYi8NdHxA/xTQ5+T/uG/OwY2cN4NgtWjPa40OTBlTxsX6eHtCvDPgebGd9w48Aymp4Qzg4k/O5ZRo8rTVmakvXgEbqNOBZGL4rXVdyh6Oj6pc6+4s+WouFOqggZufmxbKYR5/XuwxPs= irene6yfc@gmail.com
+
+至此本地和github上的初始化操作就算完成了，下面就来连接一下两者
+ssh -T git@github.com
+
+
+git init
+git add .
+git commit -m  "2021/09/19"
+git status
+git remote add origin https://github.com/Ireneyfc/Dorisyfc-Web-Design.git
+git push origin master
+
+
+git checkout -b main //创建main分支并进入
+git branch //查看都有哪些分支
+git branch -D master //删除本地的master分支
+git branch //查看都有哪些分支
+git push origin --delete master //删除github项目上的master分支：
+git pull origin main --allow-unrelated-histories  
+git push -u origin main //推送代码
+
+
+
+
+git push -u origin main
+
